@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontier | Цифровой Офис Будущего</title>
+    <meta name="description" content="Frontier — ваш надежный партнер в мире цифровых услуг. eGov, телекоммуникации, профессиональное фото и электронное страхование.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Modern Bento Grid Layout */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto;
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .bento-item {
+            position: relative;
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 280px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .bento-item--large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .bento-item--wide {
+            grid-column: span 2;
+        }
+
+        .bento-icon {
+            font-size: 3rem;
+            color: #00d2ff;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .bento-item:hover .bento-icon {
+            transform: scale(1.1) rotate(-5deg);
+            color: #fff;
+        }
+
+        /* Typography Animation */
+        .hero-text-cycle {
+            display: inline-block;
+            color: #00d2ff;
+            font-weight: 700;
+            min-width: 200px;
+        }
+
+        /* SIM Picker Styles */
+        .sim-picker-container {
+            max-width: 900px;
+            margin: 4rem auto;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .sim-toggle {
+            display: inline-flex;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.5rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .sim-toggle-btn {
+            padding: 0.8rem 2.5rem;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 600;
+            font-size: 0.95rem;
+            z-index: 1;
+            position: relative;
+        }
+
+        .sim-toggle-btn.active {
+            background: #00d2ff;
+            color: #000;
+            box-shadow: 0 4px 15px rgba(0, 210, 255, 0.3);
+        }
+
+        .sim-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .sim-card {
+            text-align: left;
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        /* Responsive Bento */
+        @media (max-width: 1024px) {
+            .bento-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .bento-grid {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+            .bento-item--large, .bento-item--wide {
+                grid-column: span 1;
+            }
+            .hero-title {
+                font-size: 2.5rem !important;
+            }
+            .sim-toggle {
+                flex-direction: column;
+                border-radius: 20px;
+                width: 100%;
+            }
+            .sim-toggle-btn {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="dark-theme">
+
+    <!-- Custom Cursor -->
+    <div id="custom-cursor"></div>
+
+    <!-- Navigation -->
+    <nav class="site-nav glass-card" style="position: fixed; top: 1.5rem; left: 50%; transform: translateX(-50%); width: 90%; max-width: 1200px; z-index: 1000; padding: 0.75rem 2rem; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(20px);">
+        <div class="logo" style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1.6rem; letter-spacing: -1px; display: flex; align-items: center; gap: 0.5rem;">
+            <i class="ti ti-hexagon-letter-f" style="color: #00d2ff; font-size: 1.8rem;"></i>
+            <span>FRONTIER</span>
+        </div>
+        <div class="nav-links" style="display: flex; gap: 2.5rem; align-items: center;">
+            <a href="#services" style="color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.3s;">Услуги</a>
+            <a href="#sim-picker" style="color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.3s;">SIM/eSIM</a>
+            <a href="#contact" class="ui-button" style="background: #00d2ff; color: #000; font-weight: 700; padding: 0 1.5rem; height: 44px; display: flex; align-items: center; text-decoration: none; font-size: 0.9rem; box-shadow: 0 4px 15px rgba(0, 210, 255, 0.2);">Связаться</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" style="min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 2rem; background: radial-gradient(circle at center, rgba(0, 210, 255, 0.05) 0%, transparent 70%);">
+            <h1 class="hero-title reveal" style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: clamp(3rem, 8vw, 5.5rem); line-height: 1; margin-bottom: 2rem; letter-spacing: -0.04em;">
+                Будущее сервиса <br>
+                <span id="hero-text-cycle" class="hero-text-cycle">уже здесь.</span>
+            </h1>
+            <p class="hero-subtitle reveal" style="max-width: 650px; font-size: 1.25rem; color: rgba(255,255,255,0.6); margin-bottom: 3.5rem; line-height: 1.6;">
+                Премиальный офис цифровых решений. Мгновенная интеграция в мир государственных услуг, качественной связи и юридической уверенности.
+            </p>
+            <div class="reveal">
+                <a href="#services" class="btn" style="background: #fff; color: #000; padding: 1.2rem 3rem; border-radius: 999px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 0.75rem; transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); font-size: 1.1rem; box-shadow: 0 10px 25px rgba(255,255,255,0.1);">
+                    Исследовать <i class="ti ti-arrow-right"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Services Bento -->
+        <section id="services" style="padding: 10rem 1rem;">
+            <div class="section-header" style="text-align: center; margin-bottom: 6rem;">
+                <span class="sub-header reveal" style="text-transform: uppercase; letter-spacing: 0.3rem; font-size: 0.8rem; font-weight: 700;">Направления</span>
+                <h2 class="reveal" style="font-family: 'Sora', sans-serif; font-size: clamp(2.5rem, 5vw, 3.5rem); margin-top: 1.5rem; letter-spacing: -0.02em;">Цифровая Экосистема</h2>
+            </div>
+            
+            <div class="bento-grid">
+                <!-- eGov -->
+                <div class="bento-item bento-item--large glass-card reveal">
+                    <div>
+                        <div class="bento-icon-wrapper" style="width: 70px; height: 70px; border-radius: 20px; background: rgba(0, 210, 255, 0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
+                            <i class="ti ti-building-bank bento-icon" style="margin: 0;"></i>
+                        </div>
+                        <h3 style="font-size: 2.2rem; margin-bottom: 1.5rem; font-family: 'Sora', sans-serif;">eGov Департамент</h3>
+                        <p style="color: rgba(255,255,255,0.6); font-size: 1.1rem; line-height: 1.6;">Профессиональное сопровождение по любым вопросам портала электронного правительства. Регистрация бизнеса, недвижимости и оформление личных документов за считанные минуты.</p>
+                    </div>
+                    <div style="margin-top: 3rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                        <span class="ui-chip"><i class="ti ti-id"></i> ID-карты</span>
+                        <span class="ui-chip"><i class="ti ti-briefcase"></i> Регистрация ТОО</span>
+                        <span class="ui-chip"><i class="ti ti-key"></i> ЭЦП Ключи</span>
+                    </div>
+                </div>
+
+                <!-- Telco -->
+                <div class="bento-item glass-card reveal">
+                    <div>
+                        <i class="ti ti-wifi bento-icon"></i>
+                        <h3 style="font-size: 1.6rem; margin-bottom: 0.75rem; font-family: 'Sora', sans-serif;">Телеком Хаб</h3>
+                        <p style="font-size: 0.95rem; color: rgba(255,255,255,0.6); line-height: 1.5;">Активация SIM и eSIM. Подбор эксклюзивных тарифов, которые не найти в открытом доступе.</p>
+                    </div>
+                    <div style="margin-top: 2rem;">
+                        <span class="sub-header" style="color: #00d2ff; font-weight: 700;">5G READY</span>
+                    </div>
+                </div>
+
+                <!-- Photography -->
+                <div class="bento-item glass-card reveal">
+                    <div>
+                        <i class="ti ti-aperture bento-icon"></i>
+                        <h3 style="font-size: 1.6rem; margin-bottom: 0.75rem; font-family: 'Sora', sans-serif;">Студия Фото</h3>
+                        <p style="font-size: 0.95rem; color: rgba(255,255,255,0.6); line-height: 1.5;">Студийное качество для ваших документов. Ретушь за 5 минут и моментальная печать или отправка на почту.</p>
+                    </div>
+                </div>
+
+                <!-- E-Assurance -->
+                <div class="bento-item bento-item--wide glass-card reveal" style="background: linear-gradient(135deg, rgba(20, 20, 25, 0.4) 0%, rgba(0, 210, 255, 0.05) 100%);">
+                    <div>
+                        <i class="ti ti-shield-lock bento-icon"></i>
+                        <h3 style="font-size: 1.8rem; margin-bottom: 1rem; font-family: 'Sora', sans-serif;">Электронная Защита</h3>
+                        <p style="color: rgba(255,255,255,0.6); font-size: 1.05rem; line-height: 1.6; max-width: 80%;">Обеспечение юридической чистоты ваших цифровых сделок и оформление обязательного страхования в режиме реального времени.</p>
+                    </div>
+                    <div style="margin-top: 2rem;">
+                        <a href="https://wa.me/77000000000" style="color: #00d2ff; text-decoration: none; font-size: 1rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;">
+                            Получить консультацию <i class="ti ti-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SIM Picker Section -->
+        <section id="sim-picker" style="padding: 10rem 1rem; position: relative; overflow: hidden;">
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 10% 20%, rgba(0, 210, 255, 0.03) 0%, transparent 40%); pointer-events: none;"></div>
+            <div class="sim-picker-container">
+                <span class="sub-header reveal" style="text-transform: uppercase; letter-spacing: 0.2rem; display: block; margin-bottom: 1rem;">Гибкая связь</span>
+                <h2 class="reveal" style="font-family: 'Sora', sans-serif; font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 4rem; letter-spacing: -0.02em;">Выберите свой стандарт</h2>
+                
+                <div class="sim-toggle reveal">
+                    <div class="sim-toggle-btn active" onclick="switchSim('sim')">Physical SIM</div>
+                    <div class="sim-toggle-btn" onclick="switchSim('esim')">Electronic eSIM</div>
+                </div>
+
+                <div id="sim-content" class="sim-cards reveal">
+                    <!-- Cards will be injected by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Trust Bar -->
+        <section id="trust" style="padding: 6rem 1rem; border-top: 1px solid rgba(255,255,255,0.05);">
+            <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 5rem; opacity: 0.3;">
+                <div style="font-weight: 900; font-size: 1.5rem; letter-spacing: 2px;">KCELL</div>
+                <div style="font-weight: 900; font-size: 1.5rem; letter-spacing: 2px;">BEELINE</div>
+                <div style="font-weight: 900; font-size: 1.5rem; letter-spacing: 2px;">TELE2</div>
+                <div style="font-weight: 900; font-size: 1.5rem; letter-spacing: 2px;">ALTEL</div>
+                <div style="font-weight: 900; font-size: 1.5rem; letter-spacing: 2px;">E-GOV</div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" style="padding: 8rem 2rem 4rem; background: #050505; border-top: 1px solid rgba(255,255,255,0.05);">
+        <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 6rem; margin-bottom: 6rem;">
+            <div>
+                <div class="logo" style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1.8rem; margin-bottom: 2rem;">
+                    FRONTIER<span style="color: #00d2ff;">.</span>
+                </div>
+                <p style="color: rgba(255,255,255,0.5); line-height: 1.8; font-size: 1.1rem;">
+                    Ваш личный ассистент в цифровом ландшафте. Мы делаем технологии доступными, а бюрократию незаметной.
+                </p>
+                <div style="margin-top: 2.5rem; display: flex; gap: 1rem;">
+                    <a href="#" class="ui-button" style="width: 44px; height: 44px; padding: 0; justify-content: center;"><i class="ti ti-brand-instagram"></i></a>
+                    <a href="#" class="ui-button" style="width: 44px; height: 44px; padding: 0; justify-content: center;"><i class="ti ti-brand-telegram"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 2rem; font-family: 'Sora', sans-serif; font-size: 1.25rem;">Офис</h4>
+                <p style="color: rgba(255,255,255,0.7); margin-bottom: 0.75rem; font-size: 1.1rem; display: flex; align-items: center; gap: 0.75rem;">
+                    <i class="ti ti-map-pin" style="color: #00d2ff;"></i> Алматы, пр. Аль-Фараби 17
+                </p>
+                <p style="color: rgba(255,255,255,0.7); margin-bottom: 0.75rem; font-size: 1.1rem; display: flex; align-items: center; gap: 0.75rem;">
+                    <i class="ti ti-mail" style="color: #00d2ff;"></i> office@frontier.kz
+                </p>
+                <p style="color: #fff; margin-bottom: 3rem; font-size: 1.25rem; font-weight: 600; margin-top: 1rem;">+7 700 123 4567</p>
+            </div>
+            <div style="display: flex; flex-direction: column; justify-content: flex-start;">
+                <h4 style="margin-bottom: 2rem; font-family: 'Sora', sans-serif; font-size: 1.25rem;">Консультация</h4>
+                <p style="color: rgba(255,255,255,0.5); margin-bottom: 2.5rem; font-size: 1rem;">Получите быстрый ответ на ваш вопрос в мессенджере.</p>
+                <a href="https://wa.me/77001234567" class="btn" style="background: #25D366; color: #fff; border: none; display: inline-flex; align-items: center; gap: 0.75rem; font-weight: 700; border-radius: 12px; padding: 1.25rem 2rem; width: fit-content; text-decoration: none;">
+                    <i class="ti ti-brand-whatsapp" style="font-size: 1.5rem;"></i> WhatsApp
+                </a>
+            </div>
+        </div>
+        <div style="text-align: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 3rem; color: rgba(255,255,255,0.3); font-size: 0.9rem;">
+            &copy; 2026 Frontier Digital Services. Создано для будущего.
+        </div>
+    </footer>
+
+    <!-- GSAP Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Typography Animation
+        const cycleWords = [" eGov.", " Телеком.", " Фото.", " Защита."];
+        let wordIndex = 0;
+        const textElement = document.getElementById('hero-text-cycle');
+
+        function cycleText() {
+            gsap.to(textElement, {
+                opacity: 0,
+                y: -15,
+                duration: 0.4,
+                ease: "power2.in",
+                onComplete: () => {
+                    wordIndex = (wordIndex + 1) % cycleWords.length;
+                    textElement.textContent = cycleWords[wordIndex];
+                    gsap.fromTo(textElement, 
+                        { opacity: 0, y: 15 },
+                        { opacity: 1, y: 0, duration: 0.5, ease: "back.out(1.7)" }
+                    );
+                }
+            });
+        }
+        setInterval(cycleText, 3500);
+
+        // Scroll Reveals
+        gsap.utils.toArray('.reveal').forEach((elem) => {
+            gsap.fromTo(elem, 
+                { opacity: 0, y: 40 },
+                { 
+                    opacity: 1, 
+                    y: 0, 
+                    duration: 1.2, 
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: elem,
+                        start: "top 90%",
+                        toggleActions: "play none none none"
+                    }
+                }
+            );
+        });
+
+        // SIM Switcher
+        const simData = {
+            sim: [
+                { name: "Frontier Basic", price: "5 490 ₸", features: ["20 ГБ Трафика", "Безлимит: WhatsApp, Instagram", "300 минут на все сети", "Бесплатная доставка SIM"] },
+                { name: "Frontier Pro", price: "8 990 ₸", features: ["50 ГБ Трафика", "Полный безлимит на соцсети", "600 минут на все сети", "Золотой номер в подарок"] }
+            ],
+            esim: [
+                { name: "Digital Start", price: "4 990 ₸", features: ["25 ГБ Трафика", "Мгновенная активация", "250 минут на все сети", "Экологичный выбор"] },
+                { name: "Digital Nomad", price: "12 990 ₸", features: ["Безлимитный интернет", "Роуминг пакет: 5 ГБ", "Безлимитные звонки", "VIP поддержка 24/7"] }
+            ]
+        };
+
+        function switchSim(type) {
+            const btns = document.querySelectorAll('.sim-toggle-btn');
+            const clickedBtn = event ? event.target : document.querySelector('.sim-toggle-btn');
+            
+            btns.forEach(btn => btn.classList.remove('active'));
+            clickedBtn.classList.add('active');
+
+            const container = document.getElementById('sim-content');
+            gsap.to(container, {
+                opacity: 0,
+                y: 10,
+                duration: 0.3,
+                onComplete: () => {
+                    renderCards(type);
+                    gsap.fromTo(container, 
+                        { opacity: 0, y: -10 },
+                        { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }
+                    );
+                }
+            });
+        }
+
+        function renderCards(type) {
+            const container = document.getElementById('sim-content');
+            container.innerHTML = simData[type].map(plan => `
+                <div class="sim-card glass-card">
+                    <div>
+                        <span class="sub-header" style="color: #00d2ff; font-weight: 700; font-size: 0.75rem; margin-bottom: 0.5rem; display: block;">ТАРИФНЫЙ ПЛАН</span>
+                        <h4 style="font-size: 1.8rem; margin-bottom: 1.5rem; font-family: 'Sora', sans-serif;">${plan.name}</h4>
+                        <div style="font-size: 2.2rem; font-weight: 700; color: #fff; margin-bottom: 2rem;">${plan.price} <span style="font-size: 1rem; color: rgba(255,255,255,0.4); font-weight: 400;">/ мес</span></div>
+                        <ul style="list-style: none; padding: 0;">
+                            ${plan.features.map(f => `<li style="margin-bottom: 1rem; color: rgba(255,255,255,0.8); display: flex; align-items: center; gap: 0.75rem; font-size: 1.05rem;"><i class="ti ti-circle-check-filled" style="color: #00d2ff; font-size: 1.2rem;"></i> ${f}</li>`).join('')}
+                        </ul>
+                    </div>
+                    <button class="ui-button" style="width: 100%; justify-content: center; margin-top: 3rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; height: 50px;">Выбрать тариф</button>
+                </div>
+            `).join('');
+        }
+
+        // Initialize SIM cards
+        renderCards('sim');
+
+        // Custom Cursor Tracker
+        const cursor = document.getElementById('custom-cursor');
+        document.addEventListener('mousemove', (e) => {
+            gsap.to(cursor, {
+                left: e.clientX,
+                top: e.clientY,
+                duration: 0.1,
+                ease: "power2.out"
+            });
+        });
+
+        document.querySelectorAll('a, button, .ui-chip, .ui-button, .glass-card, .sim-toggle-btn').forEach(elem => {
+            elem.addEventListener('mouseenter', () => {
+                gsap.to(cursor, { scale: 2, backgroundColor: 'rgba(0, 210, 255, 0.12)', border: '1px solid rgba(0, 210, 255, 0.5)', duration: 0.3 });
+            });
+            elem.addEventListener('mouseleave', () => {
+                gsap.to(cursor, { scale: 1, backgroundColor: 'transparent', border: '2px solid #00d2ff', duration: 0.3 });
+            });
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+    </script>
+</body>
+</html>
