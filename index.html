@@ -17,6 +17,13 @@
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
     <style>
+        /* Global Reset for Overflow */
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
+        }
+
         /* Modern Bento Grid Layout */
         .bento-grid {
             display: grid;
@@ -121,6 +128,7 @@
             align-items: center;
             backdrop-filter: blur(20px);
             border-radius: 20px;
+            box-sizing: border-box;
         }
 
         /* Footer Layout */
@@ -128,6 +136,8 @@
             padding: 8rem 2rem 4rem;
             background: #050505;
             border-top: 1px solid rgba(255,255,255,0.05);
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .footer-grid {
@@ -189,7 +199,8 @@
                 grid-column: span 1;
             }
             .hero-title {
-                font-size: 2.2rem !important;
+                font-size: 2rem !important;
+                word-break: break-word;
             }
             .bento-item {
                 padding: 1.8rem;
@@ -200,6 +211,13 @@
             }
             .map-card h3 {
                 font-size: 1.2rem !important;
+                word-break: break-word;
+            }
+            .map-info-container {
+                min-width: 100% !important;
+            }
+            .site-nav p, .site-nav span {
+                word-break: break-word;
             }
         }
     </style>
@@ -340,19 +358,19 @@
                 <h2 class="reveal" data-i18n="location_title" style="font-family: 'Sora', sans-serif; font-size: clamp(2.2rem, 5vw, 3.2rem); margin-bottom: 3rem;">Біздің мекенжайымыз</h2>
                 <div class="map-card reveal">
                     <div style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
-                        <div style="flex: 1; min-width: 300px;">
+                        <div class="map-info-container" style="flex: 1; min-width: 250px;">
                             <i class="ti ti-map-2" style="font-size: 2.5rem; color: #00d2ff; margin-bottom: 1.5rem; display: block;"></i>
-                            <h3 data-i18n="address_full" style="font-size: 1.6rem; line-height: 1.4; margin-bottom: 2rem; font-family: 'Sora', sans-serif;">
+                            <h3 data-i18n="address_full" style="font-size: 1.5rem; line-height: 1.4; margin-bottom: 2rem; font-family: 'Sora', sans-serif;">
                                 Улица Кунаева, 1, <br>
                                 Найман ж/м, с. Шубарсу, <br>
                                 Ордабасынский район, <br>
                                 Туркестанская область
                             </h3>
-                            <a href="https://2gis.kz/shymkent/search/Шубарсу%20Кунаева%201" target="_blank" class="btn" style="background: #00d2ff; color: #000; font-weight: 700; padding: 1rem 2rem; border-radius: 12px; text-decoration: none; display: inline-flex; align-items: center; gap: 0.75rem;">
+                            <a href="https://2gis.kz/shymkent/search/Шубарсу%20Кунаева%201" target="_blank" class="btn" style="background: #00d2ff; color: #000; font-weight: 700; padding: 1rem 1.5rem; border-radius: 12px; text-decoration: none; display: inline-flex; align-items: center; gap: 0.75rem; width: 100%; justify-content: center;">
                                 <i class="ti ti-map-pin"></i> Картадан көру (2GIS)
                             </a>
                         </div>
-                        <div style="width: 100px; height: 100px; background: rgba(0, 210, 255, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                        <div style="width: 80px; height: 80px; background: rgba(0, 210, 255, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
                              <i class="ti ti-map-share" style="font-size: 3rem; color: #00d2ff;"></i>
                         </div>
                     </div>
