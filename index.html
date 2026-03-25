@@ -74,14 +74,22 @@
             min-width: 200px;
         }
 
-        /* Logo Marquee */
-        .logo-marquee {
+        /* Logo Marquee — pure CSS, no GSAP needed */
+        .logo-marquee-wrapper {
             width: 100%;
             overflow: hidden;
-            display: flex;
-            gap: 6rem;
             padding: 2rem 0;
+        }
+        .logo-marquee {
+            display: flex;
+            width: max-content;
             align-items: center;
+            gap: 6rem;
+            animation: marquee-scroll 22s linear infinite;
+        }
+        @keyframes marquee-scroll {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
         .logo-item {
@@ -184,9 +192,6 @@
             }
             .logo-marquee {
                 gap: 3rem;
-            }
-            .logo-item {
-                font-size: 1.2rem;
             }
         }
 
@@ -333,22 +338,25 @@
         </section>
 
         <!-- Trust Bar / Animated Logos -->
-        <section id="trust" style="padding: 10rem 1rem; background: #080808; overflow: hidden;">
-            <div style="text-align: center; margin-bottom: 4rem;">
+        <section id="trust" style="padding: 6rem 0; background: #080808; overflow: hidden;">
+            <div style="text-align: center; margin-bottom: 3rem;">
                 <span data-i18n="partners_header" style="text-transform: uppercase; letter-spacing: 0.2rem; font-size: 0.8rem; font-weight: 700; color: rgba(255,255,255,0.3);">СЕНІМДІ СЕРІКТЕСТЕР</span>
             </div>
-            <div class="logo-marquee" id="logo-marquee">
-                <div class="logo-item">KCELL</div>
-                <div class="logo-item">BEELINE</div>
-                <div class="logo-item">TELE2</div>
-                <div class="logo-item">ALTEL</div>
-                <div class="logo-item" style="color: #fff; opacity: 0.8;">E-GOV</div>
-                <!-- Duplicate for seamless loop -->
-                <div class="logo-item">KCELL</div>
-                <div class="logo-item">BEELINE</div>
-                <div class="logo-item">TELE2</div>
-                <div class="logo-item">ALTEL</div>
-                <div class="logo-item" style="color: #fff; opacity: 0.8;">E-GOV</div>
+            <!-- Outer wrapper clips content; inner track animates via CSS -->
+            <div class="logo-marquee-wrapper">
+                <div class="logo-marquee" id="logo-marquee">
+                    <div class="logo-item">KCELL</div>
+                    <div class="logo-item">BEELINE</div>
+                    <div class="logo-item">TELE2</div>
+                    <div class="logo-item">ALTEL</div>
+                    <div class="logo-item" style="color:rgba(255,255,255,0.7);">E-GOV</div>
+                    <!-- Duplicate for seamless loop -->
+                    <div class="logo-item">KCELL</div>
+                    <div class="logo-item">BEELINE</div>
+                    <div class="logo-item">TELE2</div>
+                    <div class="logo-item">ALTEL</div>
+                    <div class="logo-item" style="color:rgba(255,255,255,0.7);">E-GOV</div>
+                </div>
             </div>
         </section>
 
@@ -560,23 +568,10 @@
         }
         setInterval(cycleText, 3500);
 
-        // Logo Marquee Animation
-        function initMarquee() {
-            const marquee = document.getElementById('logo-marquee');
-            const items = marquee.children;
-            const marqueeWidth = marquee.scrollWidth / 2;
-            
-            gsap.to(marquee, {
-                x: -marqueeWidth,
-                duration: 20,
-                ease: "none",
-                repeat: -1
-            });
-        }
+        // Logo Marquee — now handled by pure CSS animation, no JS needed
 
-        // Initialize state
+        // Initialize default language
         setLanguage('kk');
-        initMarquee();
 
         // Scroll Reveals
         gsap.utils.toArray('.reveal').forEach((elem) => {
