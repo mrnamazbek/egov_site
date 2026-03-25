@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="kk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Frontier | Цифровой Офис Будущего</title>
-    <meta name="description" content="Frontier — ваш надежный партнер в мире цифровых услуг. eGov, телекоммуникации, профессиональное фото и электронное страхование.">
+    <title>Oraltay Digital | Цифрлық Қызмет Көрсету Орталығы</title>
+    <meta name="description" content="Оралтай Цифрлық Орталығы: eGov, байланыс және құжаттар бойынша кәсіби көмек. Шымкент қ., Қонаев көшесі 1.">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -160,29 +160,36 @@
     <!-- Navigation -->
     <nav class="site-nav glass-card" style="position: fixed; top: 1.5rem; left: 50%; transform: translateX(-50%); width: 90%; max-width: 1200px; z-index: 1000; padding: 0.75rem 2rem; display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(20px);">
         <div class="logo" style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1.6rem; letter-spacing: -1px; display: flex; align-items: center; gap: 0.5rem;">
-            <i class="ti ti-hexagon-letter-f" style="color: #00d2ff; font-size: 1.8rem;"></i>
-            <span>FRONTIER</span>
+            <i class="ti ti-hexagon-letter-o" style="color: #00d2ff; font-size: 1.8rem;"></i>
+            <span>ORALTAY<span style="color: #00d2ff;">.</span></span>
         </div>
-        <div class="nav-links" style="display: flex; gap: 2.5rem; align-items: center;">
-            <a href="#services" style="color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.3s;">Услуги</a>
-            <a href="#sim-picker" style="color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.3s;">SIM/eSIM</a>
-            <a href="#contact" class="ui-button" style="background: #00d2ff; color: #000; font-weight: 700; padding: 0 1.5rem; height: 44px; display: flex; align-items: center; text-decoration: none; font-size: 0.9rem; box-shadow: 0 4px 15px rgba(0, 210, 255, 0.2);">Связаться</a>
+        
+        <div class="nav-links" style="display: flex; gap: 2rem; align-items: center;">
+            <div class="lang-switcher">
+                <div class="lang-btn active" onclick="setLanguage('kk')">KZ</div>
+                <div class="lang-btn" onclick="setLanguage('ru')">RU</div>
+            </div>
+            <div class="nav-items" style="display: flex; gap: 1.5rem; align-items: center;">
+                <a href="#services" data-i18n="nav_services" style="color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.3s;">Қызметтер</a>
+                <a href="#sim-picker" data-i18n="nav_tariffs" style="color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.3s;">Тарифтер</a>
+                <a href="#contact" data-i18n="nav_contact" class="ui-button" style="background: #00d2ff; color: #000; font-weight: 700; padding: 0 1.2rem; height: 38px; display: flex; align-items: center; text-decoration: none; font-size: 0.85rem; box-shadow: 0 4px 15px rgba(0, 210, 255, 0.2);">Байланыс</a>
+            </div>
         </div>
     </nav>
 
     <main>
         <!-- Hero Section -->
         <section id="hero" style="min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 2rem; background: radial-gradient(circle at center, rgba(0, 210, 255, 0.05) 0%, transparent 70%);">
-            <h1 class="hero-title reveal" style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: clamp(3rem, 8vw, 5.5rem); line-height: 1; margin-bottom: 2rem; letter-spacing: -0.04em;">
-                Будущее сервиса <br>
-                <span id="hero-text-cycle" class="hero-text-cycle">уже здесь.</span>
+            <h1 class="hero-title reveal" style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: clamp(2.5rem, 7vw, 5rem); line-height: 1.1; margin-bottom: 2rem; letter-spacing: -0.04em;">
+                <span data-i18n="hero_title_base">Цифрлық қызметтер - енді</span> <br>
+                <span id="hero-text-cycle" class="hero-text-cycle">оңай.</span>
             </h1>
-            <p class="hero-subtitle reveal" style="max-width: 650px; font-size: 1.25rem; color: rgba(255,255,255,0.6); margin-bottom: 3.5rem; line-height: 1.6;">
-                Премиальный офис цифровых решений. Мгновенная интеграция в мир государственных услуг, качественной связи и юридической уверенности.
+            <p class="hero-subtitle reveal" data-i18n="hero_subtitle" style="max-width: 650px; font-size: 1.25rem; color: rgba(255,255,255,0.6); margin-bottom: 3.5rem; line-height: 1.6;">
+                Оралтай Цифрлық Орталығы: Мемлекеттік қызметтер, байланыс және құжаттар бойынша кәсіби көмек.
             </p>
             <div class="reveal">
-                <a href="#services" class="btn" style="background: #fff; color: #000; padding: 1.2rem 3rem; border-radius: 999px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 0.75rem; transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); font-size: 1.1rem; box-shadow: 0 10px 25px rgba(255,255,255,0.1);">
-                    Исследовать <i class="ti ti-arrow-right"></i>
+                <a href="#services" class="btn" data-i18n="hero_button" style="background: #fff; color: #000; padding: 1.1rem 2.8rem; border-radius: 999px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 0.75rem; transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); font-size: 1rem; box-shadow: 0 10px 25px rgba(255,255,255,0.1);">
+                    Толығырақ <i class="ti ti-arrow-right"></i>
                 </a>
             </div>
         </section>
@@ -190,8 +197,8 @@
         <!-- Services Bento -->
         <section id="services" style="padding: 10rem 1rem;">
             <div class="section-header" style="text-align: center; margin-bottom: 6rem;">
-                <span class="sub-header reveal" style="text-transform: uppercase; letter-spacing: 0.3rem; font-size: 0.8rem; font-weight: 700;">Направления</span>
-                <h2 class="reveal" style="font-family: 'Sora', sans-serif; font-size: clamp(2.5rem, 5vw, 3.5rem); margin-top: 1.5rem; letter-spacing: -0.02em;">Цифровая Экосистема</h2>
+                <span class="sub-header reveal" data-i18n="services_subheader" style="text-transform: uppercase; letter-spacing: 0.3rem; font-size: 0.8rem; font-weight: 700;">БІЗДІҢ ҚЫЗМЕТТЕР</span>
+                <h2 class="reveal" data-i18n="services_title" style="font-family: 'Sora', sans-serif; font-size: clamp(2.2rem, 5vw, 3.2rem); margin-top: 1.5rem; letter-spacing: -0.02em;">Цифрлық шешімдер</h2>
             </div>
             
             <div class="bento-grid">
@@ -201,13 +208,11 @@
                         <div class="bento-icon-wrapper" style="width: 70px; height: 70px; border-radius: 20px; background: rgba(0, 210, 255, 0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
                             <i class="ti ti-building-bank bento-icon" style="margin: 0;"></i>
                         </div>
-                        <h3 style="font-size: 2.2rem; margin-bottom: 1.5rem; font-family: 'Sora', sans-serif;">eGov Департамент</h3>
-                        <p style="color: rgba(255,255,255,0.6); font-size: 1.1rem; line-height: 1.6;">Профессиональное сопровождение по любым вопросам портала электронного правительства. Регистрация бизнеса, недвижимости и оформление личных документов за считанные минуты.</p>
+                        <h3 data-i18n="egov_title" style="font-size: 2.2rem; margin-bottom: 1.5rem; font-family: 'Sora', sans-serif;">eGov Көмек</h3>
+                        <p data-i18n="egov_desc" style="color: rgba(255,255,255,0.6); font-size: 1.1rem; line-height: 1.6;">Мемлекеттік қызметтерді алуға толық көмек: анықтама алу, кезекке тұру, ID-карта мен паспорт ресімдеу.</p>
                     </div>
-                    <div style="margin-top: 3rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
-                        <span class="ui-chip"><i class="ti ti-id"></i> ID-карты</span>
-                        <span class="ui-chip"><i class="ti ti-briefcase"></i> Регистрация ТОО</span>
-                        <span class="ui-chip"><i class="ti ti-key"></i> ЭЦП Ключи</span>
+                    <div id="egov-chips" style="margin-top: 3rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                        <!-- Chips injected by JS -->
                     </div>
                 </div>
 
@@ -215,11 +220,8 @@
                 <div class="bento-item glass-card reveal">
                     <div>
                         <i class="ti ti-wifi bento-icon"></i>
-                        <h3 style="font-size: 1.6rem; margin-bottom: 0.75rem; font-family: 'Sora', sans-serif;">Телеком Хаб</h3>
-                        <p style="font-size: 0.95rem; color: rgba(255,255,255,0.6); line-height: 1.5;">Активация SIM и eSIM. Подбор эксклюзивных тарифов, которые не найти в открытом доступе.</p>
-                    </div>
-                    <div style="margin-top: 2rem;">
-                        <span class="sub-header" style="color: #00d2ff; font-weight: 700;">5G READY</span>
+                        <h3 data-i18n="telco_title" style="font-size: 1.5rem; margin-bottom: 0.75rem; font-family: 'Sora', sans-serif;">SIM-карталар</h3>
+                        <p data-i18n="telco_desc" style="font-size: 0.95rem; color: rgba(255,255,255,0.6); line-height: 1.5;">SIM пен eSIM активациясы. Тиімді тарифтерді таңдау және нөмірлерді тіркеу.</p>
                     </div>
                 </div>
 
@@ -227,8 +229,8 @@
                 <div class="bento-item glass-card reveal">
                     <div>
                         <i class="ti ti-aperture bento-icon"></i>
-                        <h3 style="font-size: 1.6rem; margin-bottom: 0.75rem; font-family: 'Sora', sans-serif;">Студия Фото</h3>
-                        <p style="font-size: 0.95rem; color: rgba(255,255,255,0.6); line-height: 1.5;">Студийное качество для ваших документов. Ретушь за 5 минут и моментальная печать или отправка на почту.</p>
+                        <h3 data-i18n="photo_title" style="font-size: 1.5rem; margin-bottom: 0.75rem; font-family: 'Sora', sans-serif;">Сапалы фото</h3>
+                        <p data-i18n="photo_desc" style="font-size: 0.95rem; color: rgba(255,255,255,0.6); line-height: 1.5;">Құжаттарға және жеке қолданысқа арналған кәсіби фотосуреттер. 5 минутта дайын.</p>
                     </div>
                 </div>
 
@@ -236,12 +238,12 @@
                 <div class="bento-item bento-item--wide glass-card reveal" style="background: linear-gradient(135deg, rgba(20, 20, 25, 0.4) 0%, rgba(0, 210, 255, 0.05) 100%);">
                     <div>
                         <i class="ti ti-shield-lock bento-icon"></i>
-                        <h3 style="font-size: 1.8rem; margin-bottom: 1rem; font-family: 'Sora', sans-serif;">Электронная Защита</h3>
-                        <p style="color: rgba(255,255,255,0.6); font-size: 1.05rem; line-height: 1.6; max-width: 80%;">Обеспечение юридической чистоты ваших цифровых сделок и оформление обязательного страхования в режиме реального времени.</p>
+                        <h3 data-i18n="assurance_title" style="font-size: 1.8rem; margin-bottom: 1rem; font-family: 'Sora', sans-serif;">Сақтандыру</h3>
+                        <p data-i18n="assurance_desc" style="color: rgba(255,255,255,0.6); font-size: 1.05rem; line-height: 1.6; max-width: 80%;">Көлік пен мүлікті онлайн сақтандыру. Құжаттардың заңдылығына кепілдік береміз.</p>
                     </div>
                     <div style="margin-top: 2rem;">
-                        <a href="https://wa.me/77000000000" style="color: #00d2ff; text-decoration: none; font-size: 1rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;">
-                            Получить консультацию <i class="ti ti-chevron-right"></i>
+                        <a href="https://wa.me/77082938283" data-i18n="consult_link" style="color: #00d2ff; text-decoration: none; font-size: 1rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;">
+                            Консультация алу <i class="ti ti-chevron-right"></i>
                         </a>
                     </div>
                 </div>
@@ -252,12 +254,12 @@
         <section id="sim-picker" style="padding: 10rem 1rem; position: relative; overflow: hidden;">
             <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 10% 20%, rgba(0, 210, 255, 0.03) 0%, transparent 40%); pointer-events: none;"></div>
             <div class="sim-picker-container">
-                <span class="sub-header reveal" style="text-transform: uppercase; letter-spacing: 0.2rem; display: block; margin-bottom: 1rem;">Гибкая связь</span>
-                <h2 class="reveal" style="font-family: 'Sora', sans-serif; font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 4rem; letter-spacing: -0.02em;">Выберите свой стандарт</h2>
+                <span class="sub-header reveal" data-i18n="sim_subheader" style="text-transform: uppercase; letter-spacing: 0.2rem; display: block; margin-bottom: 1rem;">Байланыс</span>
+                <h2 class="reveal" data-i18n="sim_title" style="font-family: 'Sora', sans-serif; font-size: clamp(2.2rem, 5vw, 3.2rem); margin-bottom: 4rem; letter-spacing: -0.02em;">Тиімді тарифтер</h2>
                 
                 <div class="sim-toggle reveal">
-                    <div class="sim-toggle-btn active" onclick="switchSim('sim')">Physical SIM</div>
-                    <div class="sim-toggle-btn" onclick="switchSim('esim')">Electronic eSIM</div>
+                    <div class="sim-toggle-btn active" id="btn-sim" onclick="switchSim('sim')">Physical SIM</div>
+                    <div class="sim-toggle-btn" id="btn-esim" onclick="switchSim('esim')">Electronic eSIM</div>
                 </div>
 
                 <div id="sim-content" class="sim-cards reveal">
@@ -283,36 +285,39 @@
         <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 6rem; margin-bottom: 6rem;">
             <div>
                 <div class="logo" style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1.8rem; margin-bottom: 2rem;">
-                    FRONTIER<span style="color: #00d2ff;">.</span>
+                    ORALTAY<span style="color: #00d2ff;">.</span>
                 </div>
-                <p style="color: rgba(255,255,255,0.5); line-height: 1.8; font-size: 1.1rem;">
-                    Ваш личный ассистент в цифровом ландшафте. Мы делаем технологии доступными, а бюрократию незаметной.
+                <p data-i18n="footer_desc" style="color: rgba(255,255,255,0.5); line-height: 1.8; font-size: 1.1rem;">
+                    Сіздің цифрлық әлемдегі сенімді көмекшіңіз. Біз технологияларды қолжетімді етеміз.
                 </p>
                 <div style="margin-top: 2.5rem; display: flex; gap: 1rem;">
-                    <a href="#" class="ui-button" style="width: 44px; height: 44px; padding: 0; justify-content: center;"><i class="ti ti-brand-instagram"></i></a>
-                    <a href="#" class="ui-button" style="width: 44px; height: 44px; padding: 0; justify-content: center;"><i class="ti ti-brand-telegram"></i></a>
+                    <a href="https://t.me/+77082938283" class="ui-button" style="width: 44px; height: 44px; padding: 0; justify-content: center;"><i class="ti ti-brand-telegram"></i></a>
+                    <a href="https://wa.me/77082938283" class="ui-button" style="width: 44px; height: 44px; padding: 0; justify-content: center;"><i class="ti ti-brand-whatsapp"></i></a>
                 </div>
             </div>
             <div>
-                <h4 style="margin-bottom: 2rem; font-family: 'Sora', sans-serif; font-size: 1.25rem;">Офис</h4>
+                <h4 data-i18n="footer_office" style="margin-bottom: 2rem; font-family: 'Sora', sans-serif; font-size: 1.25rem;">Офис</h4>
+                <a href="https://2gis.kz/shymkent/geo/70030076671892792/69.402558,42.483415" target="_blank" style="color: rgba(255,255,255,0.7); text-decoration: none; margin-bottom: 0.75rem; font-size: 1.1rem; display: flex; align-items: center; gap: 0.75rem;">
+                    <i class="ti ti-map-pin" style="color: #00d2ff;"></i> <span data-i18n="contact_address">Шымкент қ., Қонаев көшесі 1</span>
+                </a>
                 <p style="color: rgba(255,255,255,0.7); margin-bottom: 0.75rem; font-size: 1.1rem; display: flex; align-items: center; gap: 0.75rem;">
-                    <i class="ti ti-map-pin" style="color: #00d2ff;"></i> Алматы, пр. Аль-Фараби 17
+                    <i class="ti ti-mail" style="color: #00d2ff;"></i> muhammedoraltay7@gmail.com
                 </p>
                 <p style="color: rgba(255,255,255,0.7); margin-bottom: 0.75rem; font-size: 1.1rem; display: flex; align-items: center; gap: 0.75rem;">
-                    <i class="ti ti-mail" style="color: #00d2ff;"></i> office@frontier.kz
+                    <i class="ti ti-clock" style="color: #00d2ff;"></i> <span data-i18n="contact_hours">10:00 - 18:00</span>
                 </p>
-                <p style="color: #fff; margin-bottom: 3rem; font-size: 1.25rem; font-weight: 600; margin-top: 1rem;">+7 700 123 4567</p>
+                <p style="color: #fff; margin-bottom: 3rem; font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem;">+7 708 293 82 83</p>
             </div>
             <div style="display: flex; flex-direction: column; justify-content: flex-start;">
-                <h4 style="margin-bottom: 2rem; font-family: 'Sora', sans-serif; font-size: 1.25rem;">Консультация</h4>
-                <p style="color: rgba(255,255,255,0.5); margin-bottom: 2.5rem; font-size: 1rem;">Получите быстрый ответ на ваш вопрос в мессенджере.</p>
-                <a href="https://wa.me/77001234567" class="btn" style="background: #25D366; color: #fff; border: none; display: inline-flex; align-items: center; gap: 0.75rem; font-weight: 700; border-radius: 12px; padding: 1.25rem 2rem; width: fit-content; text-decoration: none;">
+                <h4 data-i18n="footer_consult" style="margin-bottom: 2rem; font-family: 'Sora', sans-serif; font-size: 1.25rem;">Консультация</h4>
+                <p data-i18n="footer_consult_desc" style="color: rgba(255,255,255,0.5); margin-bottom: 2.5rem; font-size: 1rem;">WhatsApp арқылы кез келген сұрақты қоя аласыз.</p>
+                <a href="https://wa.me/77082938283" class="btn" style="background: #25D366; color: #fff; border: none; display: inline-flex; align-items: center; gap: 0.75rem; font-weight: 700; border-radius: 12px; padding: 1.25rem 2rem; width: fit-content; text-decoration: none;">
                     <i class="ti ti-brand-whatsapp" style="font-size: 1.5rem;"></i> WhatsApp
                 </a>
             </div>
         </div>
         <div style="text-align: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 3rem; color: rgba(255,255,255,0.3); font-size: 0.9rem;">
-            &copy; 2026 Frontier Digital Services. Создано для будущего.
+            &copy; 2026 Oraltay Digital Center.
         </div>
     </footer>
 
@@ -323,12 +328,137 @@
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
-        // Typography Animation
-        const cycleWords = [" eGov.", " Телеком.", " Фото.", " Защита."];
+        // Translations Map
+        const translations = {
+            kk: {
+                nav_services: "Қызметтер",
+                nav_tariffs: "Тарифтер",
+                nav_contact: "Байланыс",
+                hero_title_base: "Цифрлық қызметтер - енді",
+                hero_text_1: " eGov көмек.",
+                hero_text_2: " SIM-карта.",
+                hero_text_3: " Сапалы фото.",
+                hero_text_4: " Сақтандыру.",
+                hero_subtitle: "Оралтай Цифрлық Орталығы: Мемлекеттік қызметтер, байланыс және құжаттар бойынша кәсіби көмек.",
+                hero_button: "Толығырақ",
+                services_subheader: "БІЗДІҢ ҚЫЗМЕТТЕР",
+                services_title: "Цифрлық шешімдер",
+                egov_title: "eGov Көмек",
+                egov_desc: "Мемлекеттік қызметтерді алуға толық көмек: анықтама алу, кезекке тұру, паспорт пен ID-карта ресімдеу.",
+                egov_chips: ["ID-карта", "ТОО ашу", "ЭЦП алу"],
+                telco_title: "SIM-карталар",
+                telco_desc: "SIM пен eSIM активациясы. Тиімді тарифтерді таңдау және нөмірлерді тіркеу.",
+                photo_title: "Сапалы фото",
+                photo_desc: "Құжаттарға және жеке қолданысқа арналған кәсіби фотосуреттер. 5 минутта дайын.",
+                assurance_title: "Сақтандыру",
+                assurance_desc: "Көлік пен мүлікті онлайн сақтандыру. Құжаттардың заңдылығына кепілдік береміз.",
+                consult_link: "Консультация алу",
+                sim_subheader: "Байланыс",
+                sim_title: "Тиімді тарифтер",
+                sim_toggle_physical: "Кәдімгі SIM",
+                sim_toggle_electronic: "Электронды eSIM",
+                footer_desc: "Сіздің цифрлық әлемдегі сенімді көмекшіңіз. Біз технологияларды қолжетімді етеміз.",
+                footer_office: "Офис",
+                contact_address: "Шымкент қ., Қонаев көшесі 1",
+                contact_hours: "Жұмыс уақыты: 10:00 - 18:00",
+                footer_consult: "Консультация",
+                footer_consult_desc: "WhatsApp арқылы кез келген сұрақты қоя аласыз.",
+                select_plan: "Тарифті таңдау",
+                sim_basic: "Frontier Негізгі",
+                sim_pro: "Frontier Про",
+                esim_start: "Цифрлық Старт",
+                esim_nomad: "Цифрлық Nomad"
+            },
+            ru: {
+                nav_services: "Услуги",
+                nav_tariffs: "Тарифы",
+                nav_contact: "Контакты",
+                hero_title_base: "Цифровые услуги - теперь",
+                hero_text_1: " eGov помощь.",
+                hero_text_2: " SIM-карта.",
+                hero_text_3: " Качественное фото.",
+                hero_text_4: " Страхование.",
+                hero_subtitle: "Цифровой Центр Оралтай: Профессиональная помощь по госуслугам, связи и документам.",
+                hero_button: "Подробнее",
+                services_subheader: "НАШИ УСЛУГИ",
+                services_title: "Цифровые решения",
+                egov_title: "Помощь eGov",
+                egov_desc: "Полная помощь в получении госуслуг: справки, очереди, оформление паспорта и ID-карт.",
+                egov_chips: ["ID-карта", "Открыть ТОО", "Получить ЭЦП"],
+                telco_title: "SIM-карты",
+                telco_desc: "Активация SIM и eSIM. Подбор выгодных тарифов и регистрация номеров.",
+                photo_title: "Качественное фото",
+                photo_desc: "Профессиональные фото на документы и для себя. Готовность за 5 минут.",
+                assurance_title: "Страхование",
+                assurance_desc: "Онлайн страхование авто и имущества. Гарантируем законность документов.",
+                consult_link: "Получить консультацию",
+                sim_subheader: "Связь",
+                sim_title: "Выгодные тарифы",
+                sim_toggle_physical: "Обычная SIM",
+                sim_toggle_electronic: "Электронная eSIM",
+                footer_desc: "Ваш надежный помощник в цифровом мире. Мы делаем технологии доступными.",
+                footer_office: "Офис",
+                contact_address: "г. Шымкент, ул. Кунаева 1",
+                contact_hours: "Время работы: 10:00 - 18:00",
+                footer_consult: "Консультация",
+                footer_consult_desc: "Вы можете задать любой вопрос через WhatsApp.",
+                select_plan: "Выбрать тариф",
+                sim_basic: "Frontier Базовый",
+                sim_pro: "Frontier Про",
+                esim_start: "Цифровой Старт",
+                esim_nomad: "Цифровой Nomad"
+            }
+        };
+
+        let currentLang = 'kk';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            
+            // Update UI buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
+            });
+
+            // Update elements with data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(elem => {
+                const key = elem.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    elem.textContent = translations[lang][key];
+                }
+            });
+
+            // Update complex components
+            renderEgovChips();
+            switchSim(currentSimType);
+            updateHeroWords();
+        }
+
+        function renderEgovChips() {
+            const container = document.getElementById('egov-chips');
+            container.innerHTML = translations[currentLang].egov_chips.map(chip => `
+                <span class="ui-chip">${chip}</span>
+            `).join('');
+        }
+
+        // Hero Words Cycle
         let wordIndex = 0;
-        const textElement = document.getElementById('hero-text-cycle');
+        let cycleWords = [];
+
+        function updateHeroWords() {
+            cycleWords = [
+                translations[currentLang].hero_text_1,
+                translations[currentLang].hero_text_2,
+                translations[currentLang].hero_text_3,
+                translations[currentLang].hero_text_4
+            ];
+            const textElement = document.getElementById('hero-text-cycle');
+            textElement.textContent = cycleWords[wordIndex];
+        }
 
         function cycleText() {
+            const textElement = document.getElementById('hero-text-cycle');
             gsap.to(textElement, {
                 opacity: 0,
                 y: -15,
@@ -346,42 +476,42 @@
         }
         setInterval(cycleText, 3500);
 
-        // Scroll Reveals
-        gsap.utils.toArray('.reveal').forEach((elem) => {
-            gsap.fromTo(elem, 
-                { opacity: 0, y: 40 },
-                { 
-                    opacity: 1, 
-                    y: 0, 
-                    duration: 1.2, 
-                    ease: "power3.out",
-                    scrollTrigger: {
-                        trigger: elem,
-                        start: "top 90%",
-                        toggleActions: "play none none none"
-                    }
-                }
-            );
-        });
-
         // SIM Switcher
+        let currentSimType = 'sim';
         const simData = {
-            sim: [
-                { name: "Frontier Basic", price: "5 490 ₸", features: ["20 ГБ Трафика", "Безлимит: WhatsApp, Instagram", "300 минут на все сети", "Бесплатная доставка SIM"] },
-                { name: "Frontier Pro", price: "8 990 ₸", features: ["50 ГБ Трафика", "Полный безлимит на соцсети", "600 минут на все сети", "Золотой номер в подарок"] }
-            ],
-            esim: [
-                { name: "Digital Start", price: "4 990 ₸", features: ["25 ГБ Трафика", "Мгновенная активация", "250 минут на все сети", "Экологичный выбор"] },
-                { name: "Digital Nomad", price: "12 990 ₸", features: ["Безлимитный интернет", "Роуминг пакет: 5 ГБ", "Безлимитные звонки", "VIP поддержка 24/7"] }
-            ]
+            kk: {
+                sim: [
+                    { name: "Sapa Basic", price: "5 490 ₸", features: ["20 ГБ Трафик", "Безлимит: WhatsApp, Instagram", "300 минут барлық желіге", "SIM жеткізу тегін"] },
+                    { name: "Sapa Pro", price: "8 990 ₸", features: ["50 ГБ Трафик", "Әлеуметтік желілер шексіз", "600 минут барлық желіге", "Алтын нөмір сыйлыққа"] }
+                ],
+                esim: [
+                    { name: "Digital Start", price: "4 990 ₸", features: ["25 ГБ Трафик", "Жылдам активация", "250 минут барлық желіге", "Экологиялық таңдау"] },
+                    { name: "Digital Nomad", price: "12 990 ₸", features: ["Шексіз интернет", "Роуминг пакет: 5 ГБ", "Шексіз қоңыраулар", "24/7 қолдау"] }
+                ]
+            },
+            ru: {
+                sim: [
+                    { name: "Sapa Basic", price: "5 490 ₸", features: ["20 ГБ Трафика", "Безлимит: WhatsApp, Instagram", "300 минут на все сети", "Бесплатная доставка SIM"] },
+                    { name: "Sapa Pro", price: "8 990 ₸", features: ["50 ГБ Трафика", "Безлимитные соцсети", "600 минут на все сети", "Золотой номер в подарок"] }
+                ],
+                esim: [
+                    { name: "Digital Start", price: "4 990 ₸", features: ["25 ГБ Трафика", "Мгновенная активация", "250 минут на все сети", "Экологичный выбор"] },
+                    { name: "Digital Nomad", price: "12 990 ₸", features: ["Безлимитный интернет", "Роуминг пакет: 5 ГБ", "Безлимитные звонки", "Поддержка 24/7"] }
+                ]
+            }
         };
 
         function switchSim(type) {
+            currentSimType = type;
             const btns = document.querySelectorAll('.sim-toggle-btn');
-            const clickedBtn = event ? event.target : document.querySelector('.sim-toggle-btn');
+            const targetBtn = document.getElementById(type === 'sim' ? 'btn-sim' : 'btn-esim');
             
             btns.forEach(btn => btn.classList.remove('active'));
-            clickedBtn.classList.add('active');
+            if(targetBtn) targetBtn.classList.add('active');
+
+            // Update button texts based on language
+            document.getElementById('btn-sim').textContent = translations[currentLang].sim_toggle_physical;
+            document.getElementById('btn-esim').textContent = translations[currentLang].sim_toggle_electronic;
 
             const container = document.getElementById('sim-content');
             gsap.to(container, {
@@ -400,23 +530,41 @@
 
         function renderCards(type) {
             const container = document.getElementById('sim-content');
-            container.innerHTML = simData[type].map(plan => `
+            container.innerHTML = simData[currentLang][type].map(plan => `
                 <div class="sim-card glass-card">
                     <div>
-                        <span class="sub-header" style="color: #00d2ff; font-weight: 700; font-size: 0.75rem; margin-bottom: 0.5rem; display: block;">ТАРИФНЫЙ ПЛАН</span>
+                        <span class="sub-header" style="color: #00d2ff; font-weight: 700; font-size: 0.75rem; margin-bottom: 0.5rem; display: block;">${currentLang === 'kk' ? 'ТАРИФ' : 'ТАРИФ'}</span>
                         <h4 style="font-size: 1.8rem; margin-bottom: 1.5rem; font-family: 'Sora', sans-serif;">${plan.name}</h4>
-                        <div style="font-size: 2.2rem; font-weight: 700; color: #fff; margin-bottom: 2rem;">${plan.price} <span style="font-size: 1rem; color: rgba(255,255,255,0.4); font-weight: 400;">/ мес</span></div>
+                        <div style="font-size: 2.2rem; font-weight: 700; color: #fff; margin-bottom: 2rem;">${plan.price} <span style="font-size: 1rem; color: rgba(255,255,255,0.4); font-weight: 400;">/ ${currentLang === 'kk' ? 'ай' : 'мес'}</span></div>
                         <ul style="list-style: none; padding: 0;">
                             ${plan.features.map(f => `<li style="margin-bottom: 1rem; color: rgba(255,255,255,0.8); display: flex; align-items: center; gap: 0.75rem; font-size: 1.05rem;"><i class="ti ti-circle-check-filled" style="color: #00d2ff; font-size: 1.2rem;"></i> ${f}</li>`).join('')}
                         </ul>
                     </div>
-                    <button class="ui-button" style="width: 100%; justify-content: center; margin-top: 3rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; height: 50px;">Выбрать тариф</button>
+                    <button class="ui-button" style="width: 100%; justify-content: center; margin-top: 3rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; height: 50px;">${translations[currentLang].select_plan}</button>
                 </div>
             `).join('');
         }
 
-        // Initialize SIM cards
-        renderCards('sim');
+        // Initialize state
+        setLanguage('kk');
+
+        // Scroll Reveals
+        gsap.utils.toArray('.reveal').forEach((elem) => {
+            gsap.fromTo(elem, 
+                { opacity: 0, y: 40 },
+                { 
+                    opacity: 1, 
+                    y: 0, 
+                    duration: 1.2, 
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: elem,
+                        start: "top 90%",
+                        toggleActions: "play none none none"
+                    }
+                }
+            );
+        });
 
         // Custom Cursor Tracker
         const cursor = document.getElementById('custom-cursor');
@@ -442,9 +590,10 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
             });
         });
 

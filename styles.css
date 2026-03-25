@@ -3322,3 +3322,30 @@ body.dark-theme {
     border-color: white;
 }
 
+
+/* Language Switcher Styles */
+.lang-switcher {
+    display: flex;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 3px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.lang-btn {
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 999px;
+    transition: all 0.3s;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.lang-btn.active {
+    background: var(--accent-blue);
+    color: #000;
+    box-shadow: 0 2px 10px rgba(0, 210, 255, 0.3);
+}
+
