@@ -67,60 +67,43 @@
             min-width: 200px;
         }
 
-        /* SIM Picker Styles */
-        .sim-picker-container {
-            max-width: 900px;
-            margin: 4rem auto;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .sim-toggle {
-            display: inline-flex;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 0.5rem;
-            border-radius: 999px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .sim-toggle-btn {
-            padding: 0.8rem 2.5rem;
-            border-radius: 999px;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            font-weight: 600;
-            font-size: 0.95rem;
-            z-index: 1;
-            position: relative;
-        }
-
-        .sim-toggle-btn.active {
-            background: #00d2ff;
-            color: #000;
-            box-shadow: 0 4px 15px rgba(0, 210, 255, 0.3);
-        }
-
-        .sim-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .sim-card {
-            text-align: left;
-            padding: 2.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        /* Logo Marquee */
+        .logo-marquee {
+            width: 100%;
+            overflow: hidden;
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            gap: 6rem;
+            padding: 2rem 0;
+            align-items: center;
+        }
+
+        .logo-item {
+            font-family: 'Sora', sans-serif;
+            font-weight: 900;
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, 0.2);
+            transition: color 0.3s, transform 0.3s;
+            white-space: nowrap;
+        }
+
+        .logo-item:hover {
+            color: #00d2ff;
+            transform: scale(1.1);
         }
 
         .reveal {
             opacity: 0;
             transform: translateY(30px);
+        }
+
+        .map-card {
+            background: linear-gradient(135deg, rgba(20, 20, 25, 0.6) 0%, rgba(0, 210, 255, 0.05) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2.5rem;
+            border-radius: 24px;
+            margin-top: 3rem;
+            text-align: left;
         }
 
         /* Responsive Bento */
@@ -140,14 +123,6 @@
             }
             .hero-title {
                 font-size: 2.5rem !important;
-            }
-            .sim-toggle {
-                flex-direction: column;
-                border-radius: 20px;
-                width: 100%;
-            }
-            .sim-toggle-btn {
-                padding: 1rem;
             }
         }
     </style>
@@ -171,7 +146,6 @@
             </div>
             <div class="nav-items" style="display: flex; gap: 1.5rem; align-items: center;">
                 <a href="#services" data-i18n="nav_services" style="color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.3s;">Қызметтер</a>
-                <a href="#sim-picker" data-i18n="nav_tariffs" style="color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.3s;">Тарифтер</a>
                 <a href="#contact" data-i18n="nav_contact" class="ui-button" style="background: #00d2ff; color: #000; font-weight: 700; padding: 0 1.2rem; height: 38px; display: flex; align-items: center; text-decoration: none; font-size: 0.85rem; box-shadow: 0 4px 15px rgba(0, 210, 255, 0.2);">Байланыс</a>
             </div>
         </div>
@@ -185,7 +159,7 @@
                 <span id="hero-text-cycle" class="hero-text-cycle">оңай.</span>
             </h1>
             <p class="hero-subtitle reveal" data-i18n="hero_subtitle" style="max-width: 650px; font-size: 1.25rem; color: rgba(255,255,255,0.6); margin-bottom: 3.5rem; line-height: 1.6;">
-                Оралтай Цифрлық Орталығы: Мемлекеттік қызметтер, байланыс және құжаттар бойынша кәсіби көмек.
+                Оралтай Цифрлық Орталығы: Мемлекеттік қызметтер, Отбасы банк және құжаттар бойынша кәсіби көмек.
             </p>
             <div class="reveal">
                 <a href="#services" class="btn" data-i18n="hero_button" style="background: #fff; color: #000; padding: 1.1rem 2.8rem; border-radius: 999px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 0.75rem; transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); font-size: 1rem; box-shadow: 0 10px 25px rgba(255,255,255,0.1);">
@@ -209,19 +183,19 @@
                             <i class="ti ti-building-bank bento-icon" style="margin: 0;"></i>
                         </div>
                         <h3 data-i18n="egov_title" style="font-size: 2.2rem; margin-bottom: 1.5rem; font-family: 'Sora', sans-serif;">eGov және Үй кезегі</h3>
-                        <p data-i18n="egov_desc" style="color: rgba(255,255,255,0.6); font-size: 1.1rem; line-height: 1.6;">Мемлекеттік қызметтер: Үйге кезекке тұру, анықтама алу, кезекке тұру, паспорт пен ID-карта ресімдеу.</p>
+                        <p data-i18n="egov_desc" style="color: rgba(255,255,255,0.6); font-size: 1.1rem; line-height: 1.6;">Үйге кезекке тұру, Отбасы банк кызметтері және мемлекеттік деңгейдегі барлық құжаттар.</p>
                     </div>
                     <div id="egov-chips" style="margin-top: 3rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
                         <!-- Chips injected by JS -->
                     </div>
                 </div>
 
-                <!-- Otbasy Bank -->
+                <!-- Phone Settings -->
                 <div class="bento-item glass-card reveal">
                     <div>
-                        <i class="ti ti-building-community bento-icon"></i>
-                        <h3 data-i18n="otbasy_title" style="font-size: 1.5rem; margin-bottom: 0.75rem; font-family: 'Sora', sans-serif;">Отбасы Банк</h3>
-                        <p data-i18n="otbasy_desc" style="font-size: 0.95rem; color: rgba(255,255,255,0.6); line-height: 1.5;">Депозит ашу, банктік қызметтер және кредиттер бойынша тиімді кеңестер.</p>
+                        <i class="ti ti-device-mobile-cog bento-icon"></i>
+                        <h3 data-i18n="settings_title" style="font-size: 1.5rem; margin-bottom: 0.75rem; font-family: 'Sora', sans-serif;">Телефонды баптау</h3>
+                        <p data-i18n="settings_desc" style="font-size: 0.95rem; color: rgba(255,255,255,0.6); line-height: 1.5;">Телефонды баптау, интернетті қосу және қосымшаларды орнату қызметтері.</p>
                     </div>
                 </div>
 
@@ -234,12 +208,12 @@
                     </div>
                 </div>
 
-                <!-- Telco & Tariffs -->
+                <!-- Telco -->
                 <div class="bento-item glass-card reveal">
                     <div>
                         <i class="ti ti-wifi bento-icon"></i>
-                        <h3 data-i18n="telco_title" style="font-size: 1.5rem; margin-bottom: 0.75rem; font-family: 'Sora', sans-serif;">Байланыс</h3>
-                        <p data-i18n="telco_desc" style="font-size: 0.95rem; color: rgba(255,255,255,0.6); line-height: 1.5;">Altel, Tele2 және басқа операторларға ең тиімді тарифтерді қосу.</p>
+                        <h3 data-i18n="telco_title" style="font-size: 1.5rem; margin-bottom: 0.75rem; font-family: 'Sora', sans-serif;">Тиімді тарифтер</h3>
+                        <p data-i18n="telco_desc" style="font-size: 0.95rem; color: rgba(255,255,255,0.6); line-height: 1.5;">Кез келген операторға (Altel, Tele2, Kcell, Beeline) тиімді тарифтер қосамыз.</p>
                     </div>
                 </div>
 
@@ -247,7 +221,7 @@
                  <div class="bento-item glass-card reveal">
                     <div>
                         <i class="ti ti-aperture bento-icon"></i>
-                        <h3 data-i18n="photo_title" style="font-size: 1.5rem; margin-bottom: 0.75rem; font-family: 'Sora', sans-serif;">Сапалы фото</h3>
+                        <h3 data-i18n="photo_title" style="font-size: 1.5rem; margin-bottom: 0.75rem; font-family: 'Sora', sans-serif;">Фото қызметі</h3>
                         <p data-i18n="photo_desc" style="font-size: 0.95rem; color: rgba(255,255,255,0.6); line-height: 1.5;">Құжаттарға және жеке қолданысқа арналған кәсіби фотосуреттер.</p>
                     </div>
                 </div>
@@ -257,45 +231,58 @@
                     <div>
                         <i class="ti ti-shield-lock bento-icon"></i>
                         <h3 data-i18n="assurance_title" style="font-size: 1.8rem; margin-bottom: 1rem; font-family: 'Sora', sans-serif;">Сақтандыру</h3>
-                        <p data-i18n="assurance_desc" style="color: rgba(255,255,255,0.6); font-size: 1.05rem; line-height: 1.6; max-width: 80%;">Машинаға сақтандыру (ОГПО), жолаушыларды сақтандыру және басқа да онлайн сақтандыру хызметтері.</p>
-                    </div>
-                    <div style="margin-top: 2rem;">
-                        <a href="https://wa.me/77082938283" data-i18n="consult_link" style="color: #00d2ff; text-decoration: none; font-size: 1rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;">
-                            Консультация алу <i class="ti ti-chevron-right"></i>
-                        </a>
+                        <p data-i18n="assurance_desc" style="color: rgba(255,255,255,0.6); font-size: 1.05rem; line-height: 1.6; max-width: 80%;">Машинаға сақтандыру (ОГПО), жолаушыларды сақтандыру және басқа да онлайн қызметтер.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SIM Picker Section -->
-        <section id="sim-picker" style="padding: 10rem 1rem; position: relative; overflow: hidden;">
-            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 10% 20%, rgba(0, 210, 255, 0.03) 0%, transparent 40%); pointer-events: none;"></div>
-            <div class="sim-picker-container">
-                <span class="sub-header reveal" data-i18n="sim_subheader" style="text-transform: uppercase; letter-spacing: 0.2rem; display: block; margin-bottom: 1rem;">Байланыс</span>
-                <h2 class="reveal" data-i18n="sim_title" style="font-family: 'Sora', sans-serif; font-size: clamp(2.2rem, 5vw, 3.2rem); margin-bottom: 4rem; letter-spacing: -0.02em;">Тиімді тарифтер</h2>
-                
-                <div class="sim-toggle reveal">
-                    <div class="sim-toggle-btn active" id="btn-sim" onclick="setLanguage('kk')">Physical SIM</div>
-                    <div class="sim-toggle-btn" id="btn-esim" onclick="setLanguage('ru')">Electronic eSIM</div>
-                </div>
+        <!-- Trust Bar / Animated Logos -->
+        <section id="trust" style="padding: 10rem 1rem; background: #080808; overflow: hidden;">
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <span data-i18n="partners_header" style="text-transform: uppercase; letter-spacing: 0.2rem; font-size: 0.8rem; font-weight: 700; color: rgba(255,255,255,0.3);">СЕНІМДІ СЕРІКТЕСТЕР</span>
+            </div>
+            <div class="logo-marquee" id="logo-marquee">
+                <div class="logo-item">KCELL</div>
+                <div class="logo-item">BEELINE</div>
+                <div class="logo-item">TELE2</div>
+                <div class="logo-item">ALTEL</div>
+                <div class="logo-item" style="color: #fff; opacity: 0.8;">E-GOV</div>
+                <!-- Duplicate for seamless loop -->
+                <div class="logo-item">KCELL</div>
+                <div class="logo-item">BEELINE</div>
+                <div class="logo-item">TELE2</div>
+                <div class="logo-item">ALTEL</div>
+                <div class="logo-item" style="color: #fff; opacity: 0.8;">E-GOV</div>
+            </div>
+        </section>
 
-                <div id="sim-content" class="sim-cards reveal">
-                    <!-- Cards will be injected by JS -->
+        <!-- Address Section -->
+        <section id="location" style="padding: 10rem 1rem; text-align: center;">
+            <div style="max-width: 1000px; margin: 0 auto;">
+                <h2 class="reveal" data-i18n="location_title" style="font-family: 'Sora', sans-serif; font-size: clamp(2.2rem, 5vw, 3.2rem); margin-bottom: 3rem;">Біздің мекенжайымыз</h2>
+                <div class="map-card reveal">
+                    <div style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
+                        <div style="flex: 1; min-width: 300px;">
+                            <i class="ti ti-map-2" style="font-size: 2.5rem; color: #00d2ff; margin-bottom: 1.5rem; display: block;"></i>
+                            <h3 data-i18n="address_full" style="font-size: 1.6rem; line-height: 1.4; margin-bottom: 2rem; font-family: 'Sora', sans-serif;">
+                                Улица Кунаева, 1, <br>
+                                Найман ж/м, с. Шубарсу, <br>
+                                Ордабасынский район, <br>
+                                Туркестанская область
+                            </h3>
+                            <a href="https://2gis.kz/shymkent/search/Шубарсу%20Кунаева%201" target="_blank" class="btn" style="background: #00d2ff; color: #000; font-weight: 700; padding: 1rem 2rem; border-radius: 12px; text-decoration: none; display: inline-flex; align-items: center; gap: 0.75rem;">
+                                <i class="ti ti-map-pin"></i> Картадан көру (2GIS)
+                            </a>
+                        </div>
+                        <div style="width: 100px; height: 100px; background: rgba(0, 210, 255, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                             <i class="ti ti-map-share" style="font-size: 3rem; color: #00d2ff;"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Trust Bar -->
-        <section id="trust" style="padding: 6rem 1rem; border-top: 1px solid rgba(255,255,255,0.05);">
-            <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 5rem; opacity: 0.3;">
-                <div style="font-weight: 900; font-size: 1.5rem; letter-spacing: 2px;">KCELL</div>
-                <div style="font-weight: 900; font-size: 1.5rem; letter-spacing: 2px;">BEELINE</div>
-                <div style="font-weight: 900; font-size: 1.5rem; letter-spacing: 2px;">TELE2</div>
-                <div style="font-weight: 900; font-size: 1.5rem; letter-spacing: 2px;">ALTEL</div>
-                <div style="font-weight: 900; font-size: 1.5rem; letter-spacing: 2px;">E-GOV</div>
-            </div>
-        </section>
     </main>
 
     <!-- Footer -->
@@ -308,27 +295,19 @@
                 <p data-i18n="footer_desc" style="color: rgba(255,255,255,0.5); line-height: 1.8; font-size: 1.1rem;">
                     Сіздің цифрлық әлемдегі сенімді көмекшіңіз. Біз технологияларды қолжетімді етеміз.
                 </p>
-                <div style="margin-top: 2.5rem; display: flex; gap: 1rem;">
-                    <a href="https://t.me/+77082938283" class="ui-button" style="width: 44px; height: 44px; padding: 0; justify-content: center;"><i class="ti ti-brand-telegram"></i></a>
-                    <a href="https://wa.me/77082938283" class="ui-button" style="width: 44px; height: 44px; padding: 0; justify-content: center;"><i class="ti ti-brand-whatsapp"></i></a>
-                </div>
             </div>
             <div>
                 <h4 data-i18n="footer_office" style="margin-bottom: 2rem; font-family: 'Sora', sans-serif; font-size: 1.25rem;">Офис</h4>
-                <a href="https://2gis.kz/shymkent/geo/70030076671892792/69.402558,42.483415" target="_blank" style="color: rgba(255,255,255,0.7); text-decoration: none; margin-bottom: 0.75rem; font-size: 1.1rem; display: flex; align-items: center; gap: 0.75rem;">
-                    <i class="ti ti-map-pin" style="color: #00d2ff;"></i> <span data-i18n="contact_address">Шымкент қ., Қонаев көшесі 1</span>
-                </a>
-                <p style="color: rgba(255,255,255,0.7); margin-bottom: 0.75rem; font-size: 1.1rem; display: flex; align-items: center; gap: 0.75rem;">
-                    <i class="ti ti-mail" style="color: #00d2ff;"></i> muhammedoraltay7@gmail.com
+                <p style="color: rgba(255,255,255,0.7); margin-bottom: 1.5rem; font-size: 1rem; line-height: 1.5; display: flex; align-items: flex-start; gap: 0.75rem;">
+                    <i class="ti ti-map-pin" style="color: #00d2ff;"></i> <span data-i18n="contact_address">ул. Кунаева 1, с. Шубарсу, Туркестанская обл.</span>
                 </p>
                 <p style="color: rgba(255,255,255,0.7); margin-bottom: 0.75rem; font-size: 1.1rem; display: flex; align-items: center; gap: 0.75rem;">
                     <i class="ti ti-clock" style="color: #00d2ff;"></i> <span data-i18n="contact_hours">10:00 - 18:00</span>
                 </p>
-                <p style="color: #fff; margin-bottom: 3rem; font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem;">+7 708 293 82 83</p>
+                <p style="color: #fff; margin-bottom: 1rem; font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem;">+7 708 293 82 83</p>
             </div>
-            <div style="display: flex; flex-direction: column; justify-content: flex-start;">
+            <div>
                 <h4 data-i18n="footer_consult" style="margin-bottom: 2rem; font-family: 'Sora', sans-serif; font-size: 1.25rem;">Консультация</h4>
-                <p data-i18n="footer_consult_desc" style="color: rgba(255,255,255,0.5); margin-bottom: 2.5rem; font-size: 1rem;">WhatsApp арқылы кез келген сұрақты қоя аласыз.</p>
                 <a href="https://wa.me/77082938283" class="btn" style="background: #25D366; color: #fff; border: none; display: inline-flex; align-items: center; gap: 0.75rem; font-weight: 700; border-radius: 12px; padding: 1.25rem 2rem; width: fit-content; text-decoration: none;">
                     <i class="ti ti-brand-whatsapp" style="font-size: 1.5rem;"></i> WhatsApp
                 </a>
@@ -350,7 +329,6 @@
         const translations = {
             kk: {
                 nav_services: "Қызметтер",
-                nav_tariffs: "Тарифтер",
                 nav_contact: "Байланыс",
                 hero_title_base: "Цифрлық қызметтер - енді",
                 hero_text_1: " eGov көмек.",
@@ -362,38 +340,29 @@
                 services_subheader: "БІЗДІҢ ҚЫЗМЕТТЕР",
                 services_title: "Цифрлық шешімдер",
                 egov_title: "eGov және Үй кезегі",
-                egov_desc: "Мемлекеттік қызметтер: Үйге кезекке тұру, анықтама алу, паспорт пен ID-карта ресімдеу.",
-                egov_chips: ["Үй кезегі", "Паспорт", "ID-карта", "ЭЦП алу"],
-                otbasy_title: "Отбасы Банк",
-                otbasy_desc: "Депозит ашу, банктік қызметтер және кредиттер (ипотека) бойынша тиімді кеңестер.",
+                egov_desc: "Үйге кезекке тұру, Отбасы банк кызметтері және мемлекеттік деңгейдегі барлық құжаттар.",
+                egov_chips: ["Үй кезегі", "Отбасы банк", "Паспорт", "ID-карта"],
+                settings_title: "Телефонды баптау",
+                settings_desc: "Телефонды баптау, интернетті қосу және қосымшаларды орнату қызметтері.",
                 business_title: "Бизнес пен Өтініш",
-                business_desc: "ИП және ТОО ашу туралы ақпарат. e-Өтініш беру және мемлекеттік органдарға хабарласу.",
-                telco_title: "Байланыс",
-                telco_desc: "Altel, Tele2 және басқа операторларға ең тиімді тарифтерді қосу.",
-                photo_title: "Сапалы фото",
-                photo_desc: "Құжаттарға және жеке қолданысқа арналған кәсіби фотосуреттер. 5 минутта дайын.",
+                business_desc: "ИП және ТОО ашу туралы ақпарат. e-Өтініш беру және құжаттарды заңдастыру.",
+                telco_title: "Тиімді тарифтер",
+                telco_desc: "Кез келген операторға (Altel, Tele2, Kcell, Beeline) ең тиімді тарифтерді қосамыз.",
+                photo_title: "Фото қызметі",
+                photo_desc: "Құжаттарға және жеке қолданысқа арналған кәсіби фотосуреттер.",
                 assurance_title: "Сақтандыру",
                 assurance_desc: "Машинаға сақтандыру (ОГПО), жолаушыларды сақтандыру және басқа да онлайн қызметтер.",
-                consult_link: "Консультация алу",
-                sim_subheader: "Байланыс",
-                sim_title: "Тиімді тарифтер",
-                sim_toggle_physical: "Кәдімгі SIM",
-                sim_toggle_electronic: "Электронды eSIM",
+                partners_header: "СЕНІМДІ СЕРІКТЕСТЕР",
+                location_title: "Біздің мекенжайымыз",
+                address_full: "Улица Кунаева, 1, <br> Найман ж/м, с. Шубарсу, <br> Ордабасынский район, <br> Туркестанская область",
+                contact_address: "ул. Кунаева 1, Шубарсу, Түркістан обл.",
+                contact_hours: "Жұмыс уақыты: 10:00 - 18:00",
                 footer_desc: "Сіздің цифрлық әлемдегі сенімді көмекшіңіз. Біз технологияларды қолжетімді етеміз.",
                 footer_office: "Офис",
-                contact_address: "Шымкент қ., Қонаев көшесі 1",
-                contact_hours: "Жұмыс уақыты: 10:00 - 18:00",
-                footer_consult: "Консультация",
-                footer_consult_desc: "WhatsApp арқылы кез келген сұрақты қоя аласыз.",
-                select_plan: "Тарифті таңдау",
-                sim_basic: "Frontier Негізгі",
-                sim_pro: "Frontier Про",
-                esim_start: "Цифрлық Старт",
-                esim_nomad: "Цифрлық Nomad"
+                footer_consult: "Консультация"
             },
             ru: {
                 nav_services: "Услуги",
-                nav_tariffs: "Тарифы",
                 nav_contact: "Контакты",
                 hero_title_base: "Цифровые услуги - теперь",
                 hero_text_1: " Помощь eGov.",
@@ -405,34 +374,26 @@
                 services_subheader: "НАШИ УСЛУГИ",
                 services_title: "Цифровые решения",
                 egov_title: "eGov и Жилье",
-                egov_desc: "Госуслуги: Постановка в очередь на жилье, справки, оформление паспорта и ID-карт.",
-                egov_chips: ["Очередь на жилье", "Паспорт", "ID-карта", "ЭЦП"],
-                otbasy_title: "Отбасы Банк",
-                otbasy_desc: "Открытие депозитов, банковские услуги и консультации по кредитам (ипотеке).",
+                egov_desc: "Постановка в очередь на жилье, услуги Отбасы банка и все государственные документы.",
+                egov_chips: ["Очередь", "Отбасы банк", "Паспорт", "ID-карта"],
+                settings_title: "Настройка телефона",
+                settings_desc: "Настройка телефона, подключение интернета и установка приложений.",
                 business_title: "Бизнес и е-Отыныш",
-                business_desc: "Информация об открытии ИП и ТОО. Подача е-Отыныш и обращения в госорганы.",
-                telco_title: "Связь",
-                telco_desc: "Подключение самых выгодных тарифов для Altel, Tele2 и других операторов.",
-                photo_title: "Качественное фото",
-                photo_desc: "Профессиональные фото на документы и для себя. Готовность за 5 минут.",
+                business_desc: "Информация об открытии ИП и ТОО. Подача е-Отыныш и легализация документов.",
+                telco_title: "Выгодные тарифы",
+                telco_desc: "Подключаем самые выгодные тарифы на любого оператора (Altel, Tele2, Kcell, Beeline).",
+                photo_title: "Фото услуги",
+                photo_desc: "Профессиональные фото на документы и для личного использования.",
                 assurance_title: "Страхование",
                 assurance_desc: "Страхование авто (ОГПО), страхование пассажиров и другие онлайн услуги.",
-                consult_link: "Получить консультацию",
-                sim_subheader: "Связь",
-                sim_title: "Выгодные тарифы",
-                sim_toggle_physical: "Обычная SIM",
-                sim_toggle_electronic: "Электронная eSIM",
+                partners_header: "НАДЕЖНЫЕ ПАРТНЕРЫ",
+                location_title: "Наш адрес",
+                address_full: "Улица Кунаева, 1, <br> Найман ж/м, с. Шубарсу, <br> Ордабасынский район, <br> Туркестанская область",
+                contact_address: "ул. Кунаева 1, с. Шубарсу, Туркестанская обл.",
+                contact_hours: "Время работы: 10:00 - 18:00",
                 footer_desc: "Ваш надежный помощник в цифровом мире. Мы делаем технологии доступными.",
                 footer_office: "Офис",
-                contact_address: "г. Шымкент, ул. Кунаева 1",
-                contact_hours: "Время работы: 10:00 - 18:00",
-                footer_consult: "Консультация",
-                footer_consult_desc: "Вы можете задать любой вопрос через WhatsApp.",
-                select_plan: "Выбрать тариф",
-                sim_basic: "Frontier Базовый",
-                sim_pro: "Frontier Про",
-                esim_start: "Цифровой Старт",
-                esim_nomad: "Цифровой Nomad"
+                footer_consult: "Консультация"
             }
         };
 
@@ -444,7 +405,6 @@
             
             // Update UI buttons
             document.querySelectorAll('.lang-btn').forEach(btn => {
-                // Fix: Check if the onclick contains the language key
                 btn.classList.toggle('active', btn.getAttribute('onclick').includes(`'${lang}'`));
             });
 
@@ -452,13 +412,12 @@
             document.querySelectorAll('[data-i18n]').forEach(elem => {
                 const key = elem.getAttribute('data-i18n');
                 if (translations[lang] && translations[lang][key]) {
-                    elem.textContent = translations[lang][key];
+                    elem.innerHTML = translations[lang][key];
                 }
             });
 
             // Update complex components
             renderEgovChips();
-            switchSim(currentSimType);
             updateHeroWords();
         }
 
@@ -506,81 +465,23 @@
         }
         setInterval(cycleText, 3500);
 
-        // SIM Switcher
-        let currentSimType = 'sim';
-        const simData = {
-            kk: {
-                sim: [
-                    { name: "Sapa Basic", price: "5 490 ₸", features: ["20 ГБ Трафик", "Безлимит: WhatsApp, Instagram", "300 минут барлық желіге", "SIM жеткізу тегін"] },
-                    { name: "Sapa Pro", price: "8 990 ₸", features: ["50 ГБ Трафик", "Әлеуметтік желілер шексіз", "600 минут барлық желіге", "Алтын нөмір сыйлыққа"] }
-                ],
-                esim: [
-                    { name: "Digital Start", price: "4 990 ₸", features: ["25 ГБ Трафик", "Жылдам активация", "250 минут барлық желіге", "Экологиялық таңдау"] },
-                    { name: "Digital Nomad", price: "12 990 ₸", features: ["Шексіз интернет", "Роуминг пакет: 5 ГБ", "Шексіз қоңыраулар", "24/7 қолдау"] }
-                ]
-            },
-            ru: {
-                sim: [
-                    { name: "Sapa Basic", price: "5 490 ₸", features: ["20 ГБ Трафика", "Безлимит: WhatsApp, Instagram", "300 минут на все сети", "Бесплатная доставка SIM"] },
-                    { name: "Sapa Pro", price: "8 990 ₸", features: ["50 ГБ Трафика", "Безлимитные соцсети", "600 минут на все сети", "Золотой номер в подарок"] }
-                ],
-                esim: [
-                    { name: "Digital Start", price: "4 990 ₸", features: ["25 ГБ Трафика", "Мгновенная активация", "250 минут на все сети", "Экологичный выбор"] },
-                    { name: "Digital Nomad", price: "12 990 ₸", features: ["Безлимитный интернет", "Роуминг пакет: 5 ГБ", "Безлимитные звонки", "Поддержка 24/7"] }
-                ]
-            }
-        };
-
-        function switchSim(type) {
-            currentSimType = type;
-            const btns = document.querySelectorAll('.sim-toggle-btn');
-            const targetBtn = document.getElementById(type === 'sim' ? 'btn-sim' : 'btn-esim');
+        // Logo Marquee Animation
+        function initMarquee() {
+            const marquee = document.getElementById('logo-marquee');
+            const items = marquee.children;
+            const marqueeWidth = marquee.scrollWidth / 2;
             
-            btns.forEach(btn => btn.classList.remove('active'));
-            if(targetBtn) targetBtn.classList.add('active');
-
-            // Update button texts
-            const btnSim = document.getElementById('btn-sim');
-            const btnEsim = document.getElementById('btn-esim');
-            if(btnSim) btnSim.textContent = translations[currentLang].sim_toggle_physical;
-            if(btnEsim) btnEsim.textContent = translations[currentLang].sim_toggle_electronic;
-
-            const container = document.getElementById('sim-content');
-            if(!container) return;
-            gsap.to(container, {
-                opacity: 0,
-                y: 10,
-                duration: 0.3,
-                onComplete: () => {
-                    renderCards(type);
-                    gsap.fromTo(container, 
-                        { opacity: 0, y: -10 },
-                        { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }
-                    );
-                }
+            gsap.to(marquee, {
+                x: -marqueeWidth,
+                duration: 20,
+                ease: "none",
+                repeat: -1
             });
-        }
-
-        function renderCards(type) {
-            const container = document.getElementById('sim-content');
-            if(!container) return;
-            container.innerHTML = simData[currentLang][type].map(plan => `
-                <div class="sim-card glass-card">
-                    <div>
-                        <span class="sub-header" style="color: #00d2ff; font-weight: 700; font-size: 0.75rem; margin-bottom: 0.5rem; display: block;">${currentLang === 'kk' ? 'ТАРИФ' : 'ТАРИФ'}</span>
-                        <h4 style="font-size: 1.8rem; margin-bottom: 1.5rem; font-family: 'Sora', sans-serif;">${plan.name}</h4>
-                        <div style="font-size: 2.2rem; font-weight: 700; color: #fff; margin-bottom: 2rem;">${plan.price} <span style="font-size: 1rem; color: rgba(255,255,255,0.4); font-weight: 400;">/ ${currentLang === 'kk' ? 'ай' : 'мес'}</span></div>
-                        <ul style="list-style: none; padding: 0;">
-                            ${plan.features.map(f => `<li style="margin-bottom: 1rem; color: rgba(255,255,255,0.8); display: flex; align-items: center; gap: 0.75rem; font-size: 1.05rem;"><i class="ti ti-circle-check-filled" style="color: #00d2ff; font-size: 1.2rem;"></i> ${f}</li>`).join('')}
-                        </ul>
-                    </div>
-                    <button class="ui-button" style="width: 100%; justify-content: center; margin-top: 3rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; height: 50px;">${translations[currentLang].select_plan}</button>
-                </div>
-            `).join('');
         }
 
         // Initialize state
         setLanguage('kk');
+        initMarquee();
 
         // Scroll Reveals
         gsap.utils.toArray('.reveal').forEach((elem) => {
@@ -611,7 +512,7 @@
             });
         });
 
-        document.querySelectorAll('a, button, .ui-chip, .ui-button, .glass-card, .sim-toggle-btn').forEach(elem => {
+        document.querySelectorAll('a, button, .ui-chip, .ui-button, .glass-card').forEach(elem => {
             elem.addEventListener('mouseenter', () => {
                 gsap.to(cursor, { scale: 2, backgroundColor: 'rgba(0, 210, 255, 0.12)', border: '1px solid rgba(0, 210, 255, 0.5)', duration: 0.3 });
             });
