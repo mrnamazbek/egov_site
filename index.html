@@ -102,7 +102,9 @@
             flex-direction: column;
             justify-content: space-between;
             min-height: 280px;
+            cursor: pointer;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
         }
         .bento-item--large { grid-column: span 2; grid-row: span 2; }
         .bento-item--wide  { grid-column: span 2; }
@@ -112,9 +114,56 @@
             margin-bottom: 1.5rem;
             transition: transform 0.3s ease, color 0.3s ease;
         }
+        .bento-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 210, 255, 0.1);
+            border-color: rgba(0, 210, 255, 0.3);
+        }
         .bento-item:hover .bento-icon {
             transform: scale(1.1) rotate(-5deg);
             color: #fff;
+        }
+
+        /* ===== WA BADGE ===== */
+        .wa-badge {
+            position: absolute;
+            bottom: 2rem;
+            right: 2rem;
+            background: rgba(37, 211, 102, 0.1);
+            border: 1px solid rgba(37, 211, 102, 0.3);
+            color: #25D366;
+            padding: 0.5rem 1rem;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            pointer-events: none;
+        }
+        .bento-item:hover .wa-badge {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* ===== BACKGROUND PARALLAX ===== */
+        #parallax-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .floating-shape {
+            position: absolute;
+            color: rgba(0, 210, 255, 0.03);
+            will-change: transform;
         }
 
         /* ===== HERO TEXT CYCLE ===== */
@@ -246,6 +295,16 @@
 </head>
 <body class="dark-theme">
 
+    <!-- Parallax Background -->
+    <div id="parallax-bg">
+        <i class="ti ti-building-bank floating-shape shape-1" style="font-size: 15vw; top: 15%; left: 5%;"></i>
+        <i class="ti ti-briefcase floating-shape shape-2" style="font-size: 10vw; bottom: 20%; right: 10%;"></i>
+        <i class="ti ti-wifi floating-shape shape-3" style="font-size: 8vw; top: 40%; right: 20%;"></i>
+        <i class="ti ti-shield-lock floating-shape shape-4" style="font-size: 12vw; bottom: 30%; left: 15%;"></i>
+        <i class="ti ti-device-mobile-cog floating-shape shape-5" style="font-size: 9vw; top: 10%; right: 40%;"></i>
+        <i class="ti ti-aperture floating-shape shape-6" style="font-size: 14vw; bottom: 5%; left: 40%;"></i>
+    </div>
+
     <!-- Custom Cursor -->
     <div id="custom-cursor"></div>
 
@@ -293,7 +352,7 @@
             
             <div class="bento-grid">
                 <!-- eGov & Housing -->
-                <div class="bento-item bento-item--large glass-card reveal">
+                <div class="bento-item bento-item--large glass-card reveal" onclick="openWhatsAppService('egov_title')">
                     <div>
                         <div class="bento-icon-wrapper" style="width: 70px; height: 70px; border-radius: 20px; background: rgba(0, 210, 255, 0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 2rem;">
                             <i class="ti ti-building-bank bento-icon" style="margin: 0;"></i>
@@ -304,51 +363,61 @@
                     <div id="egov-chips" style="margin-top: 3rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
                         <!-- Chips injected by JS -->
                     </div>
+                    <div class="wa-badge"><i class="ti ti-brand-whatsapp"></i> <span data-i18n="wa_badge">Жазу</span></div>
                 </div>
 
                 <!-- Phone Settings -->
-                <div class="bento-item glass-card reveal">
+                <div class="bento-item glass-card reveal" onclick="openWhatsAppService('settings_title')">
                     <div>
                         <i class="ti ti-device-mobile-cog bento-icon"></i>
                         <h3 data-i18n="settings_title" style="font-size: 1.5rem; margin-bottom: 0.75rem; font-family: 'Sora', sans-serif;">Телефонды баптау</h3>
                         <p data-i18n="settings_desc" style="font-size: 0.95rem; color: rgba(255,255,255,0.6); line-height: 1.5;">Телефонды баптау, интернетті қосу және қосымшаларды орнату қызметтері.</p>
                     </div>
+                    <div class="wa-badge"><i class="ti ti-brand-whatsapp"></i> <span data-i18n="wa_badge">Жазу</span></div>
                 </div>
 
                 <!-- Business & E-Otinish -->
-                <div class="bento-item glass-card reveal">
+                <div class="bento-item glass-card reveal" onclick="openWhatsAppService('business_title')">
                     <div>
                         <i class="ti ti-briefcase bento-icon"></i>
                         <h3 data-i18n="business_title" style="font-size: 1.5rem; margin-bottom: 0.75rem; font-family: 'Sora', sans-serif;">Бизнес пен Өтініш</h3>
                         <p data-i18n="business_desc" style="font-size: 0.95rem; color: rgba(255,255,255,0.6); line-height: 1.5;">ИП және ТОО ашу туралы ақпарат. e-Өтініш беру және құжаттарды заңдастыру.</p>
                     </div>
+                    <div class="wa-badge"><i class="ti ti-brand-whatsapp"></i> <span data-i18n="wa_badge">Жазу</span></div>
                 </div>
 
                 <!-- Telco -->
-                <div class="bento-item glass-card reveal">
+                <div class="bento-item glass-card reveal" onclick="openWhatsAppService('telco_title')">
                     <div>
                         <i class="ti ti-wifi bento-icon"></i>
                         <h3 data-i18n="telco_title" style="font-size: 1.5rem; margin-bottom: 0.75rem; font-family: 'Sora', sans-serif;">Тиімді тарифтер</h3>
                         <p data-i18n="telco_desc" style="font-size: 0.95rem; color: rgba(255,255,255,0.6); line-height: 1.5;">Кез келген операторға (Altel, Tele2, Kcell, Beeline) тиімді тарифтер қосамыз.</p>
                     </div>
+                    <div class="wa-badge"><i class="ti ti-brand-whatsapp"></i> <span data-i18n="wa_badge">Жазу</span></div>
                 </div>
 
                  <!-- Photography -->
-                 <div class="bento-item glass-card reveal">
+                 <div class="bento-item glass-card reveal" onclick="openWhatsAppService('photo_title')">
                     <div>
                         <i class="ti ti-aperture bento-icon"></i>
                         <h3 data-i18n="photo_title" style="font-size: 1.5rem; margin-bottom: 0.75rem; font-family: 'Sora', sans-serif;">Фото қызметі</h3>
                         <p data-i18n="photo_desc" style="font-size: 0.95rem; color: rgba(255,255,255,0.6); line-height: 1.5;">Құжаттарға және жеке қолданысқа арналған кәсіби фотосуреттер.</p>
                     </div>
+                    <div class="wa-badge"><i class="ti ti-brand-whatsapp"></i> <span data-i18n="wa_badge">Жазу</span></div>
                 </div>
 
                 <!-- Insurance -->
-                <div class="bento-item bento-item--wide glass-card reveal" style="background: linear-gradient(135deg, rgba(20, 20, 25, 0.4) 0%, rgba(0, 210, 255, 0.05) 100%);">
+                <div class="bento-item bento-item--wide glass-card reveal" style="background: linear-gradient(135deg, rgba(20, 20, 25, 0.4) 0%, rgba(0, 210, 255, 0.05) 100%);" onclick="openWhatsAppService('assurance_title')">
                     <div>
                         <i class="ti ti-shield-lock bento-icon"></i>
                         <h3 data-i18n="assurance_title" style="font-size: 1.8rem; margin-bottom: 1rem; font-family: 'Sora', sans-serif;">Сақтандыру</h3>
                         <p data-i18n="assurance_desc" style="color: rgba(255,255,255,0.6); font-size: 1.05rem; line-height: 1.6; max-width: 80%;">Машинаға сақтандыру (ОГПО), жолаушыларды сақтандыру және басқа да онлайн қызметтер.</p>
                     </div>
+                    <!-- Decorative Element -->
+                    <div style="position: absolute; right: 2rem; bottom: 2rem; opacity: 0.1;">
+                        <i class="ti ti-shield-check" style="font-size: 8rem; color: #00d2ff;"></i>
+                    </div>
+                    <div class="wa-badge" style="z-index: 2;"><i class="ti ti-brand-whatsapp"></i> <span data-i18n="wa_badge">Жазу</span></div>
                 </div>
             </div>
         </section>
@@ -478,7 +547,10 @@
                 contact_hours: "Жұмыс уақыты: 10:00 - 18:00",
                 footer_desc: "Сіздің цифрлық әлемдегі сенімді көмекшіңіз. Біз технологияларды қолжетімді етеміз.",
                 footer_office: "Офис",
-                footer_consult: "Консультация"
+                footer_consult: "Консультация",
+                wa_badge: "Жазу",
+                wa_greeting_start: "Сәлеметсіз бе! Мен ",
+                wa_greeting_end: " қызметі бойынша хабарласып тұрмын."
             },
             ru: {
                 nav_services: "Услуги",
@@ -512,7 +584,10 @@
                 contact_hours: "Время работы: 10:00 - 18:00",
                 footer_desc: "Ваш надежный помощник в цифровом мире. Мы делаем технологии доступными.",
                 footer_office: "Офис",
-                footer_consult: "Консультация"
+                footer_consult: "Консультация",
+                wa_badge: "Написать",
+                wa_greeting_start: "Здравствуйте! Я обращаюсь по поводу услуги ",
+                wa_greeting_end: "."
             }
         };
 
@@ -586,8 +661,53 @@
 
         // Logo Marquee — now handled by pure CSS animation, no JS needed
 
-        // Initialize default language
+        // WhatsApp Service Message Populator
+        function openWhatsAppService(serviceKey) {
+            const serviceName = translations[currentLang][serviceKey] || "Service";
+            const startStr = translations[currentLang].wa_greeting_start;
+            const endStr = translations[currentLang].wa_greeting_end;
+            
+            const message = `${startStr}'${serviceName}'${endStr}`;
+            const encodedMessage = encodeURIComponent(message);
+            const phoneNumber = "77082938283"; // Target phone number
+            const url = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+            
+            window.open(url, '_blank');
+        }
+
+        // GSAP Zero-Gravity Parallax
+        function initParallax() {
+            // Floating up and down gently (Zero-gravity feel)
+            gsap.utils.toArray('.floating-shape').forEach((shape, i) => {
+                gsap.to(shape, {
+                    y: "random(-30, 30)",
+                    x: "random(-20, 20)",
+                    rotation: "random(-15, 15)",
+                    duration: "random(5, 8)",
+                    ease: "sine.inOut",
+                    yoyo: true,
+                    repeat: -1,
+                    delay: i * 0.5
+                });
+            });
+
+            // Mouse Move Parallax
+            document.addEventListener("mousemove", (e) => {
+                const x = (e.clientX / window.innerWidth - 0.5) * 40;
+                const y = (e.clientY / window.innerHeight - 0.5) * 40;
+
+                gsap.to(".shape-1", { x: x * 1.5, y: y * 1.5, duration: 1.5 });
+                gsap.to(".shape-2", { x: x * -1, y: y * -1, duration: 1.5 });
+                gsap.to(".shape-3", { x: x * 2, y: y * 0.5, duration: 1.8 });
+                gsap.to(".shape-4", { x: x * -0.5, y: y * 2, duration: 1.4 });
+                gsap.to(".shape-5", { x: x * 1.2, y: y * -1.5, duration: 1.6 });
+                gsap.to(".shape-6", { x: x * -1.5, y: y * 1.2, duration: 1.7 });
+            });
+        }
+
+        // Initialize default language and GSAP animations
         setLanguage('kk');
+        initParallax();
 
         // Scroll Reveals
         gsap.utils.toArray('.reveal').forEach((elem) => {
